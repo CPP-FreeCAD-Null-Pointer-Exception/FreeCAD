@@ -104,3 +104,7 @@ pages might help you get started:
 The [FreeCAD forum](https://forum.freecadweb.org) is also a great place
 to find help and solve specific problems you might encounter when
 learning to use FreeCAD.
+
+Null-Pointer-Exception Contributors
+-------------------------------
+Nelson Scott
