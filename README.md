@@ -107,9 +107,9 @@ learning to use FreeCAD.
 
 Null-Pointer-Exception Contributors
 -------------------------------
-Nelson Scott
-Chris Young
-Jenn Sloane
-Jumhelle Viduya
-Keane Kaiser
-Jonah Mokhtarzadeh
+- [Nelson Scott]
+- [Chris Young]
+- [Jenn Sloane]
+- [Jumhelle Viduya]
+- [Keane Kaiser]
+- [Jonah Mokhtarzadeh]
