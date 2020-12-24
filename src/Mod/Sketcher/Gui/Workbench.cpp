@@ -69,24 +69,24 @@ Gui::MenuItem* Workbench::setupMenuBar() const
 // == Sketcher menu ==========================================
 
     Gui::MenuItem* geom = new Gui::MenuItem();
-    geom->setCommand("Sketcher geometries");
+    geom->setCommand("Sketch Geometries");
     addSketcherWorkbenchGeometries(*geom);
 
     Gui::MenuItem* cons = new Gui::MenuItem();
-    cons->setCommand("Sketcher constraints");
+    cons->setCommand("Sketch Relations");
     addSketcherWorkbenchConstraints(*cons);
 
     Gui::MenuItem* consaccel = new Gui::MenuItem();
-    consaccel->setCommand("Sketcher tools");
+    consaccel->setCommand("Sketch Tools");
     addSketcherWorkbenchTools(*consaccel);
 
     Gui::MenuItem* bsplines = new Gui::MenuItem();
-    bsplines->setCommand("Sketcher B-spline tools");
+    bsplines->setCommand("Sketch B-Spline Tools");
     addSketcherWorkbenchBSplines(*bsplines);
 
-    Gui::MenuItem* virtualspace = new Gui::MenuItem();
-    virtualspace->setCommand("Sketcher virtual space");
-    addSketcherWorkbenchVirtualSpace(*virtualspace);
+    // Gui::MenuItem* virtualspace = new Gui::MenuItem();
+    // virtualspace->setCommand("Sketcher virtual space");
+    // addSketcherWorkbenchVirtualSpace(*virtualspace);
 
     Gui::MenuItem* sketch = new Gui::MenuItem;
     root->insertItem(item, sketch);
@@ -110,24 +110,24 @@ Gui::ToolBarItem* Workbench::setupToolBars() const
     addSketcherWorkbenchSketchActions(*sketcher);
 
     Gui::ToolBarItem* geom = new Gui::ToolBarItem(root);
-    geom->setCommand("Sketcher geometries");
+    geom->setCommand("Sketch Geometries");
     addSketcherWorkbenchGeometries(*geom);
 
     Gui::ToolBarItem* cons = new Gui::ToolBarItem(root);
-    cons->setCommand("Sketcher constraints");
+    cons->setCommand("Sketch Relations");
     addSketcherWorkbenchConstraints(*cons);
 
     Gui::ToolBarItem* consaccel = new Gui::ToolBarItem(root);
-    consaccel->setCommand("Sketcher tools");
+    consaccel->setCommand("Sketch Tools");
     addSketcherWorkbenchTools(*consaccel);
 
     Gui::ToolBarItem* bspline = new Gui::ToolBarItem(root);
-    bspline->setCommand("Sketcher B-spline tools");
+    bspline->setCommand("Sketch B-Spline Tools");
     addSketcherWorkbenchBSplines(*bspline);
 
-    Gui::ToolBarItem* virtualspace = new Gui::ToolBarItem(root);
-    virtualspace->setCommand("Sketcher virtual space");
-    addSketcherWorkbenchVirtualSpace(*virtualspace);
+    // Gui::ToolBarItem* virtualspace = new Gui::ToolBarItem(root);
+    // virtualspace->setCommand("Sketcher virtual space");
+    // addSketcherWorkbenchVirtualSpace(*virtualspace);
 
      return root;
 }
@@ -148,21 +148,22 @@ inline void SketcherAddWorkspaceSketchExtra(T& /*sketch*/) { }
 template <>
 inline void SketcherAddWorkspaceSketchExtra<Gui::MenuItem>(Gui::MenuItem& sketch)
 {
-    sketch  << "Sketcher_ReorientSketch"
+    sketch  //<< "Sketcher_ReorientSketch"
             << "Sketcher_ValidateSketch"
-            << "Sketcher_MergeSketches"
-            << "Sketcher_MirrorSketch"
-            << "Sketcher_StopOperation";
+            << "Separator";
+            //<< "Sketcher_MergeSketches"
+            //<< "Sketcher_MirrorSketch"
+            //<< "Sketcher_StopOperation";
 }
 
 template <>
 inline void SketcherAddWorkspaceSketchExtra<Gui::ToolBarItem>(Gui::ToolBarItem& sketch)
 {
-    sketch  << "Sketcher_ReorientSketch"
+    sketch  //<< "Sketcher_ReorientSketch"
             << "Sketcher_ValidateSketch"
-            << "Sketcher_MergeSketches"
-            << "Sketcher_MirrorSketch"
-            << "Sketcher_StopOperation";
+            //<< "Sketcher_MergeSketches"
+            //<< "Sketcher_MirrorSketch"
+            //<< "Sketcher_StopOperation";
 }
 
 template <typename T>
@@ -171,12 +172,12 @@ void SketcherAddWorkbenchSketchActions(T& sketch);
 template <typename T>
 inline void SketcherAddWorkbenchSketchActions(T& sketch)
 {
-    sketch  << "Sketcher_NewSketch"
-            << "Sketcher_EditSketch"
-            << "Sketcher_LeaveSketch"
-            << "Sketcher_ViewSketch"
-            << "Sketcher_ViewSection"
-            << "Sketcher_MapSketch";
+    sketch  //<< "Sketcher_NewSketch"
+            << "Sketcher_EditSketch";
+            //<< "Sketcher_LeaveSketch"
+            //<< "Sketcher_ViewSketch"
+            //<< "Sketcher_ViewSection"
+            //<< "Sketcher_MapSketch";
     SketcherAddWorkspaceSketchExtra(sketch);
 }
 
@@ -395,13 +396,13 @@ inline void SketcherAddWorkbenchVirtualSpace(T& virtualspace);
 template <>
 inline void SketcherAddWorkbenchVirtualSpace<Gui::MenuItem>(Gui::MenuItem& virtualspace)
 {
-    virtualspace << "Sketcher_SwitchVirtualSpace";
+    //virtualspace << "Sketcher_SwitchVirtualSpace";
 }
 
 template <>
 inline void SketcherAddWorkbenchVirtualSpace<Gui::ToolBarItem>(Gui::ToolBarItem& virtualspace)
 {
-    virtualspace << "Sketcher_SwitchVirtualSpace";
+    //virtualspace << "Sketcher_SwitchVirtualSpace";
 }
 
 void addSketcherWorkbenchSketchActions(Gui::MenuItem& sketch)
