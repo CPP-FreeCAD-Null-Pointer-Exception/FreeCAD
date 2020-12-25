@@ -569,15 +569,14 @@ MenuItem* StdWorkbench::setupMenuBar() const
     // Setup the default menu bar
     MenuItem* menuBar = new MenuItem;
 
-    // File
+    // File - Edit to Configure to Task
     MenuItem* file = new MenuItem( menuBar );
     file->setCommand("&File");
-    *file << "Std_New" << "Std_Open" << "Separator" << "Std_CloseActiveWindow"
-          << "Std_CloseAllWindows" << "Separator" << "Std_Save" << "Std_SaveAs"
-          << "Std_SaveCopy" << "Std_SaveAll" << "Std_Revert" << "Separator" << "Std_Import"
-          << "Std_Export" << "Std_MergeProjects" << "Std_ProjectInfo"
-          << "Separator" << "Std_Print" << "Std_PrintPreview" << "Std_PrintPdf"
-          << "Separator" << "Std_RecentFiles" << "Separator" << "Std_Quit";
+	*file << "Std_New" << "Std_Open" << "Std_RecentFiles" << "Separator" << "Std_CloseActiveWindow"
+		<< "Std_CloseAllWindows" << "Separator" << "Std_Save" << "Std_SaveAs"
+		<< "Std_SaveAll" << "Separator"
+		<< "Std_Print" << "Std_PrintPreview" 
+		<< "Separator" << "Std_Quit";
 
     // Edit
     MenuItem* edit = new MenuItem( menuBar );

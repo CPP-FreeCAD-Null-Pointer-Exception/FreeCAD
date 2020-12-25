@@ -1770,17 +1770,17 @@ void CreateDocCommands(void)
 
     rcCmdMgr.addCommand(new StdCmdNew());
     rcCmdMgr.addCommand(new StdCmdOpen());
-    rcCmdMgr.addCommand(new StdCmdImport());
-    rcCmdMgr.addCommand(new StdCmdExport());
-    rcCmdMgr.addCommand(new StdCmdMergeProjects());
-    rcCmdMgr.addCommand(new StdCmdDependencyGraph());
+   // rcCmdMgr.addCommand(new StdCmdImport());
+   // rcCmdMgr.addCommand(new StdCmdExport());
+   // rcCmdMgr.addCommand(new StdCmdMergeProjects());
+     rcCmdMgr.addCommand(new StdCmdDependencyGraph());
 
     rcCmdMgr.addCommand(new StdCmdSave());
     rcCmdMgr.addCommand(new StdCmdSaveAs());
-    rcCmdMgr.addCommand(new StdCmdSaveCopy());
+  //  rcCmdMgr.addCommand(new StdCmdSaveCopy());
     rcCmdMgr.addCommand(new StdCmdSaveAll());
-    rcCmdMgr.addCommand(new StdCmdRevert());
-    rcCmdMgr.addCommand(new StdCmdProjectInfo());
+  //  rcCmdMgr.addCommand(new StdCmdRevert());
+  //  rcCmdMgr.addCommand(new StdCmdProjectInfo());
     rcCmdMgr.addCommand(new StdCmdProjectUtil());
     rcCmdMgr.addCommand(new StdCmdUndo());
     rcCmdMgr.addCommand(new StdCmdRedo());
