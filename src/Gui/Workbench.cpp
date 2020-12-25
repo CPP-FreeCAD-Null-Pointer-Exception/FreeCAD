@@ -578,15 +578,13 @@ MenuItem* StdWorkbench::setupMenuBar() const
 		<< "Std_Print" << "Std_PrintPreview" 
 		<< "Separator" << "Std_Quit";
 
-    // Edit
+    // Edit - Modified to fit task - need to add sketch and save sketch
     MenuItem* edit = new MenuItem( menuBar );
     edit->setCommand("&Edit");
-    *edit << "Std_Undo" << "Std_Redo" << "Separator" << "Std_Cut" << "Std_Copy"
-          << "Std_Paste" << "Std_DuplicateSelection" << "Separator"
-          << "Std_Refresh" << "Std_BoxSelection" << "Std_BoxElementSelection"
-          << "Std_SelectAll" << "Std_Delete" << "Std_SendToPythonConsole"
-          << "Separator" << "Std_Placement" /*<< "Std_TransformManip"*/ << "Std_Alignment"
-          << "Std_Edit" << "Separator" << "Std_DlgPreferences";
+    *edit	<< "Std_Undo" << "Std_Redo" << "Separator" << "Std_Cut" << "Std_Copy"
+			<< "Std_Paste" << "Separator"
+			<< "Std_BoxSelection" << "Std_SelectAll" << "Std_Delete"
+			<< "Separator" << "Sketcher_EditSketch" << "Separator" << "Std_DlgPreferences";
 
     MenuItem* axoviews = new MenuItem;
     axoviews->setCommand("Axonometric");
