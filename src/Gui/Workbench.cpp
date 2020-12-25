@@ -592,7 +592,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
               << "Std_ViewDimetric"
               << "Std_ViewTrimetric";
 
-    // Standard views
+    // Standard views- currently not using standard-views
     MenuItem* stdviews = new MenuItem;
     stdviews->setCommand("Standard views");
     *stdviews << "Std_ViewFitAll" << "Std_ViewFitSelection" << axoviews
@@ -613,32 +613,31 @@ MenuItem* StdWorkbench::setupMenuBar() const
     zoom->setCommand("&Zoom");
     *zoom << "Std_ViewZoomIn" << "Std_ViewZoomOut" << "Separator" << "Std_ViewBoxZoom";
 
-    // Visibility
+    // Visibility -- > Hide / Show
     MenuItem* visu = new MenuItem;
-    visu->setCommand("Visibility");
+    visu->setCommand("Hide/Show");
     *visu << "Std_ToggleVisibility" << "Std_ShowSelection" << "Std_HideSelection"
           << "Std_SelectVisibleObjects"
           << "Separator" << "Std_ToggleObjects" << "Std_ShowObjects" << "Std_HideObjects"
           << "Separator" << "Std_ToggleSelectability"
           << "Separator" << "View_Measure_Toggle_All" << "View_Measure_Clear_All";
 
-    // View
+	//User Interface
+	MenuItem* usin = new MenuItem;
+	usin->setCommand("User Interface");
+	*usin << "Std_ViewStatusBar";
+
+    // View, Comment out the original functions and add in the new menu
     MenuItem* view = new MenuItem( menuBar );
     view->setCommand("&View");
-    *view << "Std_ViewCreate" << "Std_OrthographicCamera" << "Std_PerspectiveCamera" << "Std_MainFullscreen" << "Separator"
-          << stdviews << "Std_FreezeViews" << "Std_DrawStyle" << "Std_SelBoundingBox"
-          << "Separator" << view3d << zoom
-          << "Std_ViewDockUndockFullscreen" << "Std_AxisCross" << "Std_ToggleClipPlane"
-          << "Std_TextureMapping"
+    *view << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_ViewZoomIn" << "Std_ViewZoomOut" << "Std_ViewBoxZoom" << "Separator"
+			<< "Std_ViewRotateRight" << "Std_ViewRotateLeft" << "Separator"
+			<< visu << "Separator"
 #ifdef BUILD_VR
           << "Std_ViewVR"
 #endif
-          << "Separator" << visu
-          << "Std_ToggleVisibility" << "Std_ToggleNavigation"
-          << "Std_SetAppearance" << "Std_RandomColor" << "Separator"
-          << "Std_Workbench" << "Std_ToolBarMenu" << "Std_DockViewMenu" << "Separator"
-          << "Std_TreeViewActions"
-          << "Std_ViewStatusBar";
+			<< "Std_ToolBarMenu"
+			<< usin << "Std_MainFullscreen";
 
     // Tools
     MenuItem* tool = new MenuItem( menuBar );
