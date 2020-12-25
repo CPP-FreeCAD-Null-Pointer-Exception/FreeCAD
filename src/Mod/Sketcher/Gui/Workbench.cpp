@@ -84,9 +84,9 @@ Gui::MenuItem* Workbench::setupMenuBar() const
     bsplines->setCommand("Sketch B-Spline Tools");
     addSketcherWorkbenchBSplines(*bsplines);
 
-    // Gui::MenuItem* virtualspace = new Gui::MenuItem();
-    // virtualspace->setCommand("Sketcher virtual space");
-    // addSketcherWorkbenchVirtualSpace(*virtualspace);
+     Gui::MenuItem* virtualspace = new Gui::MenuItem();
+     virtualspace->setCommand("Sketcher virtual space");
+     addSketcherWorkbenchVirtualSpace(*virtualspace);
 
     Gui::MenuItem* sketch = new Gui::MenuItem;
     root->insertItem(item, sketch);
@@ -159,8 +159,8 @@ inline void SketcherAddWorkspaceSketchExtra<Gui::MenuItem>(Gui::MenuItem& sketch
 template <>
 inline void SketcherAddWorkspaceSketchExtra<Gui::ToolBarItem>(Gui::ToolBarItem& sketch)
 {
-    sketch  //<< "Sketcher_ReorientSketch"
-            << "Sketcher_ValidateSketch"
+	sketch  //<< "Sketcher_ReorientSketch"
+		<< "Sketcher_ValidateSketch";
             //<< "Sketcher_MergeSketches"
             //<< "Sketcher_MirrorSketch"
             //<< "Sketcher_StopOperation";
