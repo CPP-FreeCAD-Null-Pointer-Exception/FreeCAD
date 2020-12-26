@@ -424,15 +424,20 @@ StdCmdNew::StdCmdNew()
 void StdCmdNew::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
-    QString cmd;
-    cmd = QString::fromLatin1("App.newDocument(\"%1\")")
-        .arg(qApp->translate("StdCmdNew","Unnamed"));
-    runCommand(Command::Doc,cmd.toUtf8());
-    doCommand(Command::Gui,"Gui.activeDocument().activeView().viewDefaultOrientation()");
+    // create new document if no active documents exist
+    if(Application::Instance->activeDocument() == NULL)
+    {
+        QString cmd;
+        cmd = QString::fromLatin1("App.newDocument(\"%1\")")
+            .arg(qApp->translate("StdCmdNew","Unnamed"));
+        runCommand(Command::Doc,cmd.toUtf8());
+        doCommand(Command::Gui,"Gui.activeDocument().activeView().viewDefaultOrientation()");
 
-    ParameterGrp::handle hViewGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/View");
-    if (hViewGrp->GetBool("ShowAxisCross"))
-        doCommand(Command::Gui,"Gui.ActiveDocument.ActiveView.setAxisCross(True)");
+        ParameterGrp::handle hViewGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/View");
+        if (hViewGrp->GetBool("ShowAxisCross"))
+            doCommand(Command::Gui,"Gui.ActiveDocument.ActiveView.setAxisCross(True)");
+    }
+    doCommand(PythonCommand::Doc, "App.activeDocument().addObject('Sketcher::SketchObject','SketchObj')");
 }
 
 //===========================================================================
