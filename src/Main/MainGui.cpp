@@ -199,6 +199,7 @@ int main( int argc, char ** argv )
         // Inits the Application
 #if defined (FC_OS_WIN32)
         App::Application::init(argc_, argv_.data());
+		
 #else
         App::Application::init(argc, argv);
 #endif
