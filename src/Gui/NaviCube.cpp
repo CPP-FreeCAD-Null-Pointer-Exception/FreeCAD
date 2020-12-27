@@ -174,7 +174,7 @@ public:
 
 class NaviCubeImplementation {
 public:
-	NaviCubeImplementation(Gui::View3DInventorViewer*);
+	//NaviCubeImplementation(Gui::View3DInventorViewer*);
 	virtual ~ NaviCubeImplementation();
 	void drawNaviCube();
 	void createContextMenu(const std::vector<std::string>& cmd);
@@ -236,7 +236,7 @@ public:
 	enum {
 		DIR_UP,DIR_RIGHT,DIR_OUT
 	};
-	Gui::View3DInventorViewer* m_View3DInventorViewer;
+	//Gui::View3DInventorViewer* m_View3DInventorViewer;
 	void drawNaviCube(bool picking);
 
 	int m_OverSample = 4;
@@ -274,7 +274,7 @@ public:
 	QMenu* m_Menu;
 };
 
-NaviCube::NaviCube(Gui::View3DInventorViewer* viewer) {
+//NaviCube::NaviCube(Gui::View3DInventorViewer* viewer) {
 	m_NaviCubeImplementation = new NaviCubeImplementation(viewer);
 }
 
@@ -305,9 +305,9 @@ void NaviCube::setCorner(Corner c) {
 }
 
 NaviCubeImplementation::NaviCubeImplementation(
-	Gui::View3DInventorViewer* viewer) {
+	//Gui::View3DInventorViewer* viewer) {
 	ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/NaviCube");
-	m_View3DInventorViewer = viewer;
+	//m_View3DInventorViewer = viewer;
 
 	m_TextColor = QColor(0,0,0,255);
 	if (hGrp->GetUnsigned("TextColor")) {
@@ -860,7 +860,7 @@ void NaviCubeImplementation::handleResize() {
 		}
 		m_PrevWidth = view[0];
 		m_PrevHeight = view[1];
-		m_View3DInventorViewer->getSoRenderManager()->scheduleRedraw();
+		//m_View3DInventorViewer->getSoRenderManager()->scheduleRedraw();
 
 	}
 
