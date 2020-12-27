@@ -72,7 +72,7 @@
 using namespace Gui;
 
 
-void View3DInventorPy::init_type()
+//void View3DInventorPy::init_type()
 {
     behaviors().name("View3DInventorPy");
     behaviors().doc("Python binding class for the Inventor viewer class");
