@@ -523,8 +523,9 @@ void StdWorkbench::setupContextMenu(const char* recipient, MenuItem* item) const
 {
     if (strcmp(recipient,"View") == 0)
     {
-        createLinkMenu(item);
-        *item << "Separator";
+		//Doesn't show link menu when right clicking 
+       // createLinkMenu(item);
+      //  *item << "Separator";
 
         MenuItem* StdViews = new MenuItem;
         StdViews->setCommand( "Standard views" );
@@ -537,8 +538,8 @@ void StdWorkbench::setupContextMenu(const char* recipient, MenuItem* item) const
         measure->setCommand("Measure");
         *measure << "View_Measure_Toggle_All" << "View_Measure_Clear_All";
 
-        *item << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_DrawStyle" << StdViews << measure
-              << "Separator" << "Std_ViewDockUndockFullscreen";
+      //  *item << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_DrawStyle" << StdViews << measure
+     //         << "Separator" << "Std_ViewDockUndockFullscreen";
 
         if (Gui::Selection().countObjectsOfType(App::DocumentObject::getClassTypeId()) > 0) {
             *item << "Separator" << "Std_SetAppearance" << "Std_ToggleVisibility"
