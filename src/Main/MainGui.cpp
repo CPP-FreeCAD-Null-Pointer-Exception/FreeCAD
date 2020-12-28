@@ -182,7 +182,7 @@ int main( int argc, char ** argv )
     App::Application::Config()["StartWorkbench"] = "StartWorkbench";
     //App::Application::Config()["HiddenDockWindow"] = "Property editor";
     App::Application::Config()["SplashAlignment" ] = "Bottom|Left";
-    App::Application::Config()["SplashTextColor" ] = "#FF0000"; // white
+    App::Application::Config()["SplashTextColor" ] = "#FF0000"; // red
     App::Application::Config()["SplashInfoColor" ] = "#c8c8c8"; // light grey
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 7, 0))

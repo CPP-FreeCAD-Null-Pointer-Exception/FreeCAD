@@ -692,11 +692,12 @@ MenuItem* StdWorkbench::setupMenuBar() const
     // Help
     MenuItem* help = new MenuItem( menuBar );
     help->setCommand("&Help");
+	/*
     *help << "Std_OnlineHelp" << "Std_FreeCADWebsite"
           << "Std_FreeCADUserHub" << "Std_FreeCADPowerUserHub"
           << "Std_PythonHelp" << "Std_FreeCADForum"
           << "Std_FreeCADFAQ" << "Std_About" << "Std_WhatsThis";
-
+		  */
     return menuBar;
 }
 
