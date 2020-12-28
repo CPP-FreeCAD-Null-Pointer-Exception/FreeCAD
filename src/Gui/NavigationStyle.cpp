@@ -1618,7 +1618,7 @@ void NavigationStyle::openPopupMenu(const SbVec2s& position)
 
     // add submenu at the end to select navigation style
     std::map<Base::Type, std::string> styles = UserNavigationStyle::getUserFriendlyNames();
-
+	//Step 4 Right click configurations
 	QString comp = QStringLiteral("CAD");
 	QString comp2 = QStringLiteral("OpenInventor");
 
