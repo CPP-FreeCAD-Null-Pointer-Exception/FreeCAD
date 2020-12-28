@@ -437,8 +437,7 @@ void StdCmdNew::activated(int iMsg)
         if (hViewGrp->GetBool("ShowAxisCross"))
             doCommand(Command::Gui,"Gui.ActiveDocument.ActiveView.setAxisCross(True)");
     }
-    doCommand(PythonCommand::Doc, "newSketch = App.activeDocument().addObject('Sketcher::SketchObject','SketchObj')");
-    doCommand(PythonCommand:Gui, "Gui.activeDocument().setEdit(newSketch)");
+    doCommand(PythonCommand::Doc, "App.activeDocument().addObject('Sketcher::SketchObject','SketchObj')");
 }
 
 //===========================================================================
