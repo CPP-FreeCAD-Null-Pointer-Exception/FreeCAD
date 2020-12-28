@@ -1618,16 +1618,24 @@ void NavigationStyle::openPopupMenu(const SbVec2s& position)
 
     // add submenu at the end to select navigation style
     std::map<Base::Type, std::string> styles = UserNavigationStyle::getUserFriendlyNames();
-    for (std::map<Base::Type, std::string>::iterator it = styles.begin(); it != styles.end(); ++it) {
-        QByteArray data(it->first.getName());
-        QString name = QApplication::translate(it->first.getName(), it->second.c_str());
 
-        QAction* item = subMenuGroup.addAction(name);
-        item->setData(data);
-        item->setCheckable(true);
-        if (it->first == this->getTypeId())
-            item->setChecked(true);
-        subMenu.addAction(item);
+	QString comp = QStringLiteral("CAD");
+	QString comp2 = QStringLiteral("OpenInventor");
+
+    for (std::map<Base::Type, std::string>::iterator it = styles.begin(); it != styles.end(); ++it) {
+	
+			QByteArray data(it->first.getName());
+			QString name = QApplication::translate(it->first.getName(), it->second.c_str());
+			
+			if (QString::compare(name,comp) == 0 || QString::compare(name, comp2) == 0) {
+
+				QAction* item = subMenuGroup.addAction(name);
+				item->setData(data);
+				item->setCheckable(true);
+				if (it->first == this->getTypeId())
+					item->setChecked(true);
+				subMenu.addAction(item);
+			}
     }
 
     delete view;
