@@ -663,7 +663,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
 #endif
 
     // Macro
-    MenuItem* macro = new MenuItem( menuBar );
+    /*MenuItem* macro = new MenuItem( menuBar );
     macro->setCommand("&Macro");
     *macro << "Std_DlgMacroRecord"
            << "Std_MacroStopRecord"
@@ -676,7 +676,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
            << "Std_MacroStopDebug"
            << "Std_MacroStepOver"
            << "Std_MacroStepInto"
-           << "Std_ToggleBreakpoint";
+           << "Std_ToggleBreakpoint";*/
 
     // Windows
     MenuItem* wnd = new MenuItem( menuBar );
@@ -684,6 +684,25 @@ MenuItem* StdWorkbench::setupMenuBar() const
     *wnd << "Std_ActivateNextWindow" << "Std_ActivatePrevWindow" << "Separator"
          << "Std_TileWindows" << "Std_CascadeWindows"
          << "Std_ArrangeIcons" << "Separator" << "Std_WindowsMenu" << "Std_Windows";
+
+    /* Simulation 
+        - Command definitions to be defined in either of the three:
+            - src/Gui/CommandSimulation.cpp
+            - src/Mod/Sketcher/Gui/CommandSimulation.cpp
+            - src/Gui/CommandStd.cpp 
+    */
+    MenuItem* secprop = new MenuItem; // section properties
+    secprop->setCommand("Section Properties");
+    *secprop << "placeholder" << "placeholder";
+
+    MenuItem* simulation = new MenuItem( menuBar );
+    simulation->setCommand("&Simulation");
+    // append commands
+    *simulation << "Sim_DefineMaterials" << "Sim_DefineSection" << "Sim_DefineBoundaryConditions"
+                << "Sim_DefineLoads" << "Separator" << "Sim_RunAnalysis" << "Separator"
+                << secprop << "Separator"
+                << "Sim_PlotResults" << "Sim_ListResults" << "Sim_ResultTools";
+
 
     // Separator
     MenuItem* sep = new MenuItem( menuBar );
@@ -698,6 +717,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
           << "Std_PythonHelp" << "Std_FreeCADForum"
           << "Std_FreeCADFAQ" << "Std_About" << "Std_WhatsThis";
 		  */
+
     return menuBar;
 }
 
