@@ -42,11 +42,16 @@ class SketcherWorkbench ( Workbench ):
         # load the module
         import SketcherGui
         import Sketcher
+        import FreeCAD as App
 
         try:
             import Profiles
         except ImportError:
             print("Error in Profiles module")
+        #Create a new active document
+        if(App.activeDocument() is None):App.newDocument();
+
+        f = App.activeDocument().addObject("Sketcher::SketchObject","Sketch")
             
     def GetClassName(self):
         return "SketcherGui::Workbench"
