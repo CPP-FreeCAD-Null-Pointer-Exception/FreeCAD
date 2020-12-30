@@ -637,7 +637,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
 #ifdef BUILD_VR
           << "Std_ViewVR"
 #endif
-			<< "Std_ToolBarMenu"
+			<< "Std_ToolBarMenu" <<"Std_DockViewMenu"
 			<< usin << "Std_MainFullscreen";
 
     // Tools
@@ -921,6 +921,7 @@ DockWindowItems* NoneWorkbench::setupDockWindows() const
 {
     DockWindowItems* root = new DockWindowItems();
     root->addDockWidget("Std_ReportView", Qt::BottomDockWidgetArea, true, false);
+	root->addDockWidget("Std_ComboView", Qt::RightDockWidgetArea, true, false);
     return root;
 }
 
