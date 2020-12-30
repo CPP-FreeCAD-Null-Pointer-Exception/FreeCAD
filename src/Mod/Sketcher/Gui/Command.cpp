@@ -976,15 +976,15 @@ void CreateSketcherCommands(void)
 {
     Gui::CommandManager &rcCmdMgr = Gui::Application::Instance->commandManager();
 
-    rcCmdMgr.addCommand(new CmdSketcherNewSketch());
+    //rcCmdMgr.addCommand(new CmdSketcherNewSketch());
     rcCmdMgr.addCommand(new CmdSketcherEditSketch());
-    rcCmdMgr.addCommand(new CmdSketcherLeaveSketch());
-    rcCmdMgr.addCommand(new CmdSketcherStopOperation());
-    rcCmdMgr.addCommand(new CmdSketcherReorientSketch());
-    rcCmdMgr.addCommand(new CmdSketcherMapSketch());
-    rcCmdMgr.addCommand(new CmdSketcherViewSketch());
+    //rcCmdMgr.addCommand(new CmdSketcherLeaveSketch());
+    //rcCmdMgr.addCommand(new CmdSketcherStopOperation());
+    //rcCmdMgr.addCommand(new CmdSketcherReorientSketch());
+    //rcCmdMgr.addCommand(new CmdSketcherMapSketch());
+    //rcCmdMgr.addCommand(new CmdSketcherViewSketch());
     rcCmdMgr.addCommand(new CmdSketcherValidateSketch());
-    rcCmdMgr.addCommand(new CmdSketcherMirrorSketch());
-    rcCmdMgr.addCommand(new CmdSketcherMergeSketches());
-    rcCmdMgr.addCommand(new CmdSketcherViewSection());
+    //rcCmdMgr.addCommand(new CmdSketcherMirrorSketch());
+    //rcCmdMgr.addCommand(new CmdSketcherMergeSketches());
+    //rcCmdMgr.addCommand(new CmdSketcherViewSection());
 }

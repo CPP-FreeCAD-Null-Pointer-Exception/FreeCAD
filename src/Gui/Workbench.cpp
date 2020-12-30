@@ -523,8 +523,9 @@ void StdWorkbench::setupContextMenu(const char* recipient, MenuItem* item) const
 {
     if (strcmp(recipient,"View") == 0)
     {
-        createLinkMenu(item);
-        *item << "Separator";
+		//Doesn't show link menu when right clicking 
+       // createLinkMenu(item);
+      //  *item << "Separator";
 
         MenuItem* StdViews = new MenuItem;
         StdViews->setCommand( "Standard views" );
@@ -537,8 +538,8 @@ void StdWorkbench::setupContextMenu(const char* recipient, MenuItem* item) const
         measure->setCommand("Measure");
         *measure << "View_Measure_Toggle_All" << "View_Measure_Clear_All";
 
-        *item << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_DrawStyle" << StdViews << measure
-              << "Separator" << "Std_ViewDockUndockFullscreen";
+      //  *item << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_DrawStyle" << StdViews << measure
+     //         << "Separator" << "Std_ViewDockUndockFullscreen";
 
         if (Gui::Selection().countObjectsOfType(App::DocumentObject::getClassTypeId()) > 0) {
             *item << "Separator" << "Std_SetAppearance" << "Std_ToggleVisibility"
@@ -569,25 +570,22 @@ MenuItem* StdWorkbench::setupMenuBar() const
     // Setup the default menu bar
     MenuItem* menuBar = new MenuItem;
 
-    // File
+    // File - Edit to Configure to Task
     MenuItem* file = new MenuItem( menuBar );
     file->setCommand("&File");
-    *file << "Std_New" << "Std_Open" << "Separator" << "Std_CloseActiveWindow"
-          << "Std_CloseAllWindows" << "Separator" << "Std_Save" << "Std_SaveAs"
-          << "Std_SaveCopy" << "Std_SaveAll" << "Std_Revert" << "Separator" << "Std_Import"
-          << "Std_Export" << "Std_MergeProjects" << "Std_ProjectInfo"
-          << "Separator" << "Std_Print" << "Std_PrintPreview" << "Std_PrintPdf"
-          << "Separator" << "Std_RecentFiles" << "Separator" << "Std_Quit";
+	*file << "Std_New" << "Std_Open" << "Std_RecentFiles" << "Separator" << "Std_CloseActiveWindow"
+		<< "Std_CloseAllWindows" << "Separator" << "Std_Save" << "Std_SaveAs"
+		<< "Std_SaveAll" << "Separator"
+		<< "Std_Print" << "Std_PrintPreview" 
+		<< "Separator" << "Std_Quit";
 
-    // Edit
+    // Edit - Modified to fit task - need to add sketch and save sketch
     MenuItem* edit = new MenuItem( menuBar );
     edit->setCommand("&Edit");
-    *edit << "Std_Undo" << "Std_Redo" << "Separator" << "Std_Cut" << "Std_Copy"
-          << "Std_Paste" << "Std_DuplicateSelection" << "Separator"
-          << "Std_Refresh" << "Std_BoxSelection" << "Std_BoxElementSelection"
-          << "Std_SelectAll" << "Std_Delete" << "Std_SendToPythonConsole"
-          << "Separator" << "Std_Placement" /*<< "Std_TransformManip"*/ << "Std_Alignment"
-          << "Std_Edit" << "Separator" << "Std_DlgPreferences";
+    *edit	<< "Std_Undo" << "Std_Redo" << "Separator" << "Std_Cut" << "Std_Copy"
+			<< "Std_Paste" << "Separator"
+			<< "Std_BoxSelection" << "Std_SelectAll" << "Std_Delete"
+			<< "Separator" << "Sketcher_EditSketch" << "Separator" << "Std_DlgPreferences";
 
     MenuItem* axoviews = new MenuItem;
     axoviews->setCommand("Axonometric");
@@ -595,7 +593,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
               << "Std_ViewDimetric"
               << "Std_ViewTrimetric";
 
-    // Standard views
+    // Standard views- currently not using standard-views
     MenuItem* stdviews = new MenuItem;
     stdviews->setCommand("Standard views");
     *stdviews << "Std_ViewFitAll" << "Std_ViewFitSelection" << axoviews
@@ -616,32 +614,31 @@ MenuItem* StdWorkbench::setupMenuBar() const
     zoom->setCommand("&Zoom");
     *zoom << "Std_ViewZoomIn" << "Std_ViewZoomOut" << "Separator" << "Std_ViewBoxZoom";
 
-    // Visibility
+    // Visibility -- > Hide / Show
     MenuItem* visu = new MenuItem;
-    visu->setCommand("Visibility");
+    visu->setCommand("Hide/Show");
     *visu << "Std_ToggleVisibility" << "Std_ShowSelection" << "Std_HideSelection"
           << "Std_SelectVisibleObjects"
           << "Separator" << "Std_ToggleObjects" << "Std_ShowObjects" << "Std_HideObjects"
           << "Separator" << "Std_ToggleSelectability"
           << "Separator" << "View_Measure_Toggle_All" << "View_Measure_Clear_All";
 
-    // View
+	//User Interface
+	MenuItem* usin = new MenuItem;
+	usin->setCommand("User Interface");
+	*usin << "Std_ViewStatusBar";
+
+    // View, Comment out the original functions and add in the new menu
     MenuItem* view = new MenuItem( menuBar );
     view->setCommand("&View");
-    *view << "Std_ViewCreate" << "Std_OrthographicCamera" << "Std_PerspectiveCamera" << "Std_MainFullscreen" << "Separator"
-          << stdviews << "Std_FreezeViews" << "Std_DrawStyle" << "Std_SelBoundingBox"
-          << "Separator" << view3d << zoom
-          << "Std_ViewDockUndockFullscreen" << "Std_AxisCross" << "Std_ToggleClipPlane"
-          << "Std_TextureMapping"
+    *view << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_ViewZoomIn" << "Std_ViewZoomOut" << "Std_ViewBoxZoom" << "Separator"
+			<< "Std_ViewRotateRight" << "Std_ViewRotateLeft" << "Separator"
+			<< visu << "Separator"
 #ifdef BUILD_VR
           << "Std_ViewVR"
 #endif
-          << "Separator" << visu
-          << "Std_ToggleVisibility" << "Std_ToggleNavigation"
-          << "Std_SetAppearance" << "Std_RandomColor" << "Separator"
-          << "Std_Workbench" << "Std_ToolBarMenu" << "Std_DockViewMenu" << "Separator"
-          << "Std_TreeViewActions"
-          << "Std_ViewStatusBar";
+			<< "Std_ToolBarMenu"
+			<< usin << "Std_MainFullscreen";
 
     // Tools
     MenuItem* tool = new MenuItem( menuBar );
@@ -666,7 +663,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
 #endif
 
     // Macro
-    MenuItem* macro = new MenuItem( menuBar );
+    /*MenuItem* macro = new MenuItem( menuBar );
     macro->setCommand("&Macro");
     *macro << "Std_DlgMacroRecord"
            << "Std_MacroStopRecord"
@@ -679,7 +676,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
            << "Std_MacroStopDebug"
            << "Std_MacroStepOver"
            << "Std_MacroStepInto"
-           << "Std_ToggleBreakpoint";
+           << "Std_ToggleBreakpoint";*/
 
     // Windows
     MenuItem* wnd = new MenuItem( menuBar );
@@ -688,6 +685,25 @@ MenuItem* StdWorkbench::setupMenuBar() const
          << "Std_TileWindows" << "Std_CascadeWindows"
          << "Std_ArrangeIcons" << "Separator" << "Std_WindowsMenu" << "Std_Windows";
 
+    /* Simulation 
+        - Command definitions to be defined in either of the three:
+            - src/Gui/CommandSimulation.cpp
+            - src/Mod/Sketcher/Gui/CommandSimulation.cpp
+            - src/Gui/CommandStd.cpp 
+    */
+    MenuItem* secprop = new MenuItem; // section properties
+    secprop->setCommand("Section Properties");
+    *secprop << "placeholder" << "placeholder";
+
+    MenuItem* simulation = new MenuItem( menuBar );
+    simulation->setCommand("&Simulation");
+    // append commands
+    *simulation << "Sim_DefineMaterials" << "Sim_DefineSection" << "Sim_DefineBoundaryConditions"
+                << "Sim_DefineLoads" << "Separator" << "Sim_RunAnalysis" << "Separator"
+                << secprop << "Separator"
+                << "Sim_PlotResults" << "Sim_ListResults" << "Sim_ResultTools";
+
+
     // Separator
     MenuItem* sep = new MenuItem( menuBar );
     sep->setCommand( "Separator" );
@@ -695,10 +711,12 @@ MenuItem* StdWorkbench::setupMenuBar() const
     // Help
     MenuItem* help = new MenuItem( menuBar );
     help->setCommand("&Help");
+	/*
     *help << "Std_OnlineHelp" << "Std_FreeCADWebsite"
           << "Std_FreeCADUserHub" << "Std_FreeCADPowerUserHub"
           << "Std_PythonHelp" << "Std_FreeCADForum"
           << "Std_FreeCADFAQ" << "Std_About" << "Std_WhatsThis";
+		  */
 
     return menuBar;
 }

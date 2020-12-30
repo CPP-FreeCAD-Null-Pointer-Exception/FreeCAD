@@ -424,15 +424,21 @@ StdCmdNew::StdCmdNew()
 void StdCmdNew::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
-    QString cmd;
-    cmd = QString::fromLatin1("App.newDocument(\"%1\")")
-        .arg(qApp->translate("StdCmdNew","Unnamed"));
-    runCommand(Command::Doc,cmd.toUtf8());
-    doCommand(Command::Gui,"Gui.activeDocument().activeView().viewDefaultOrientation()");
+    // create new document if no active documents exist
+    if(Application::Instance->activeDocument() == NULL)
+    {
+        QString cmd;
+        cmd = QString::fromLatin1("App.newDocument(\"%1\")")
+            .arg(qApp->translate("StdCmdNew","Unnamed"));
+        runCommand(Command::Doc,cmd.toUtf8());
+        doCommand(Command::Gui,"Gui.activeDocument().activeView().viewDefaultOrientation()");
 
-    ParameterGrp::handle hViewGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/View");
-    if (hViewGrp->GetBool("ShowAxisCross"))
-        doCommand(Command::Gui,"Gui.ActiveDocument.ActiveView.setAxisCross(True)");
+        ParameterGrp::handle hViewGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/View");
+        if (hViewGrp->GetBool("ShowAxisCross"))
+            doCommand(Command::Gui,"Gui.ActiveDocument.ActiveView.setAxisCross(True)");
+    }
+    doCommand(PythonCommand::Doc, "newSketch = App.activeDocument().addObject('Sketcher::SketchObject','SketchObj')");
+    doCommand(PythonCommand::Gui, "Gui.activeDocument().setEdit(newSketch)");
 }
 
 //===========================================================================
@@ -1770,17 +1776,17 @@ void CreateDocCommands(void)
 
     rcCmdMgr.addCommand(new StdCmdNew());
     rcCmdMgr.addCommand(new StdCmdOpen());
-    rcCmdMgr.addCommand(new StdCmdImport());
-    rcCmdMgr.addCommand(new StdCmdExport());
-    rcCmdMgr.addCommand(new StdCmdMergeProjects());
-    rcCmdMgr.addCommand(new StdCmdDependencyGraph());
+   // rcCmdMgr.addCommand(new StdCmdImport());
+   // rcCmdMgr.addCommand(new StdCmdExport());
+   // rcCmdMgr.addCommand(new StdCmdMergeProjects());
+     rcCmdMgr.addCommand(new StdCmdDependencyGraph());
 
     rcCmdMgr.addCommand(new StdCmdSave());
     rcCmdMgr.addCommand(new StdCmdSaveAs());
-    rcCmdMgr.addCommand(new StdCmdSaveCopy());
+  //  rcCmdMgr.addCommand(new StdCmdSaveCopy());
     rcCmdMgr.addCommand(new StdCmdSaveAll());
-    rcCmdMgr.addCommand(new StdCmdRevert());
-    rcCmdMgr.addCommand(new StdCmdProjectInfo());
+  //  rcCmdMgr.addCommand(new StdCmdRevert());
+  //  rcCmdMgr.addCommand(new StdCmdProjectInfo());
     rcCmdMgr.addCommand(new StdCmdProjectUtil());
     rcCmdMgr.addCommand(new StdCmdUndo());
     rcCmdMgr.addCommand(new StdCmdRedo());
