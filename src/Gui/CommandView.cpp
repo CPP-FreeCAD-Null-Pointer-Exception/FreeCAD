@@ -848,6 +848,104 @@ bool StdCmdDrawStyle::isActive(void)
 {
     return Gui::Application::Instance->activeDocument();
 }
+//===========================================================================
+//Std_Origins
+//===========================================================================
+DEF_STD_CMD_A(StdCmdOrigins)
+
+StdCmdOrigins::StdCmdOrigins()
+	: Command("Std_Origins")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("Origins");
+	sToolTipText = QT_TR_NOOP("Origin me Yellow");
+	sStatusTip = QT_TR_NOOP("It Originates Nothing");
+	sWhatsThis = "Std_Origins";
+	
+}
+
+void StdCmdOrigins::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+bool StdCmdOrigins::isActive(void)
+{
+	return false;
+}
+//===========================================================================
+//Std_Dimensions
+//===========================================================================
+DEF_STD_CMD_A(StdCmdDimensions)
+
+StdCmdDimensions::StdCmdDimensions()
+	: Command("Std_Dimensions")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("Dimensions");
+	sToolTipText = QT_TR_NOOP("Off to the shadow realm");
+	sStatusTip = QT_TR_NOOP("Dimensions");
+	sWhatsThis = "Std_Dimensions";
+
+}
+
+void StdCmdDimensions::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+bool StdCmdDimensions::isActive(void)
+{
+	return false;
+}
+//===========================================================================
+//Std_Grid
+//===========================================================================
+DEF_STD_CMD_A(StdCmdGrid)
+
+StdCmdGrid::StdCmdGrid()
+	: Command("Std_Grid")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("Grid");
+	sToolTipText = QT_TR_NOOP("Grid-dle ");
+	sStatusTip = QT_TR_NOOP("Grids are fun");
+	sWhatsThis = "Std_Grid";
+
+}
+
+void StdCmdGrid::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+bool StdCmdGrid::isActive(void)
+{
+	return false;
+}
+
+//===========================================================================
+//Std_SketchRelations
+//===========================================================================
+DEF_STD_CMD_A(StdCmdSketchRelations)
+
+StdCmdSketchRelations::StdCmdSketchRelations()
+	: Command("Std_SketchRelations")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("SketchRelations");
+	sToolTipText = QT_TR_NOOP("Sketching");
+	sStatusTip = QT_TR_NOOP("Sketches nothing");
+	sWhatsThis = "Std_SketchRelations";
+
+}
+
+void StdCmdSketchRelations::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+bool StdCmdSketchRelations::isActive(void)
+{
+	return false;
+}
+
 
 //===========================================================================
 // Std_ToggleVisibility
@@ -3665,7 +3763,12 @@ void CreateViewStdCommands(void)
     rcCmdMgr.addCommand(new StdCmdSelBack());
     rcCmdMgr.addCommand(new StdCmdSelForward());
     rcCmdMgr.addCommand(new StdCmdTreeViewActions());
+	//Added methods for step 2
 	rcCmdMgr.addCommand(new StdCmdRedraw());
+	rcCmdMgr.addCommand(new StdCmdOrigins());
+	rcCmdMgr.addCommand(new StdCmdDimensions());
+	rcCmdMgr.addCommand(new StdCmdGrid());
+	rcCmdMgr.addCommand(new StdCmdSketchRelations());
 
 
     auto hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/View");
