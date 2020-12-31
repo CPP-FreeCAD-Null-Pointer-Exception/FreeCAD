@@ -695,7 +695,11 @@ MenuItem* StdWorkbench::setupMenuBar() const
     */
     MenuItem* secprop = new MenuItem; // section properties
     secprop->setCommand("Section Properties");
-    *secprop << "placeholder" << "placeholder";
+    *secprop << "Separator";
+
+    MenuItem* restools = new MenuItem; // result tools
+    restools->setCommand("Result Tools");
+    *restools << "Separator";
 
     MenuItem* simulation = new MenuItem( menuBar );
     simulation->setCommand("&Simulation");
@@ -703,7 +707,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
     *simulation << "Sim_DefineMaterials" << "Sim_DefineSection" << "Sim_DefineBoundaryConditions"
                 << "Sim_DefineLoads" << "Separator" << "Sim_RunAnalysis" << "Separator"
                 << secprop << "Separator"
-                << "Sim_PlotResults" << "Sim_ListResults" << "Sim_ResultTools";
+                << "Sim_PlotResults" << "Sim_ListResults" << restools;
 
 
     // Separator

@@ -792,6 +792,164 @@ void StdCmdUnitsCalculator::activated(int iMsg)
     dlg->show();
 }
 
+
+//===========================================================================
+// Sim_DefineMaterials
+//===========================================================================
+
+DEF_STD_CMD_A(SimDefineMaterials)
+
+SimDefineMaterials::SimDefineMaterials()
+    :Command("Sim_DefineMaterials")
+{
+    sGroup = QT_TR_NOOP("Simulation");
+    sMenuText = QT_TR_NOOP("Define Materials");
+
+}
+
+void SimDefineMaterials::activated(int iMsg)
+{
+}
+
+bool SimDefineMaterials::isActive(void)
+{
+    return false;
+}
+
+//===========================================================================
+// Sim_DefineSection
+//===========================================================================
+
+DEF_STD_CMD_A(SimDefineSection)
+
+SimDefineSection::SimDefineSection()
+    :Command("Sim_DefineSection")
+{
+    sGroup = QT_TR_NOOP("Simulation");
+    sMenuText = QT_TR_NOOP("Define Section");
+
+}
+
+void SimDefineSection::activated(int iMsg)
+{
+}
+
+bool SimDefineSection::isActive(void)
+{
+    return false;
+}
+
+//===========================================================================
+// Sim_DefineBoundaryConditions
+//===========================================================================
+
+DEF_STD_CMD_A(SimDefineBoundaryConditions)
+
+SimDefineBoundaryConditions::SimDefineBoundaryConditions()
+    :Command("Sim_DefineBoundaryConditions")
+{
+    sGroup = QT_TR_NOOP("Simulation");
+    sMenuText = QT_TR_NOOP("Define Boundary Conditions");
+}
+
+void SimDefineBoundaryConditions::activated(int iMsg)
+{
+}
+
+bool SimDefineBoundaryConditions::isActive(void)
+{
+    return false;
+}
+
+//===========================================================================
+// Sim_DefineLoads
+//===========================================================================
+
+DEF_STD_CMD_A(SimDefineLoads)
+
+SimDefineLoads::SimDefineLoads()
+    :Command("Sim_DefineLoads")
+{
+    sGroup = QT_TR_NOOP("Simulation");
+    sMenuText = QT_TR_NOOP("Define Loads");
+}
+
+void SimDefineLoads::activated(int iMsg)
+{
+}
+
+bool SimDefineLoads::isActive(void)
+{
+    return false;
+}
+
+//===========================================================================
+// Sim_RunAnalysis
+//===========================================================================
+
+DEF_STD_CMD_A(SimRunAnalysis)
+
+SimRunAnalysis::SimRunAnalysis()
+    :Command("Sim_RunAnalysis")
+{
+    sGroup = QT_TR_NOOP("Simulation");
+    sMenuText = QT_TR_NOOP("Run Analysis");
+}
+
+void SimRunAnalysis::activated(int iMsg)
+{
+}
+
+bool SimRunAnalysis::isActive(void)
+{
+    return false;
+}
+
+//===========================================================================
+// Sim_PlotResults
+//===========================================================================
+
+DEF_STD_CMD_A(SimPlotResults)
+
+SimPlotResults::SimPlotResults()
+    :Command("Sim_PlotResults")
+{
+    sGroup = QT_TR_NOOP("Simulation");
+    sMenuText = QT_TR_NOOP("Plot Results");
+}
+
+void SimPlotResults::activated(int iMsg)
+{
+}
+
+bool SimPlotResults::isActive(void)
+{
+    return false;
+}
+
+//===========================================================================
+// Sim_ListResults
+//===========================================================================
+
+DEF_STD_CMD_A(SimListResults)
+
+SimListResults::SimListResults()
+    :Command("Sim_ListResults")
+{
+    sGroup = QT_TR_NOOP("Simulation");
+    sMenuText = QT_TR_NOOP("List Results");
+}
+
+void SimListResults::activated(int iMsg)
+{
+}
+
+bool SimListResults::isActive(void)
+{
+    return false;
+}
+
+
 namespace Gui {
 
 void CreateStdCommands(void)
@@ -823,6 +981,13 @@ void CreateStdCommands(void)
     //rcCmdMgr.addCommand(new StdCmdMeasurementSimple());
     //rcCmdMgr.addCommand(new StdCmdDownloadOnlineHelp());
     //rcCmdMgr.addCommand(new StdCmdDescription());
+    rcCmdMgr.addCommand(new SimDefineMaterials());
+    rcCmdMgr.addCommand(new SimDefineSection());
+    rcCmdMgr.addCommand(new SimDefineBoundaryConditions());
+    rcCmdMgr.addCommand(new SimDefineLoads());
+    rcCmdMgr.addCommand(new SimRunAnalysis());
+    rcCmdMgr.addCommand(new SimPlotResults());
+    rcCmdMgr.addCommand(new SimListResults());
 }
 
 } // namespace Gui
