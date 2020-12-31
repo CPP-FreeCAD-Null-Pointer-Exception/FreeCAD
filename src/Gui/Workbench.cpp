@@ -627,7 +627,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
 	//User Interface
 	MenuItem* usin = new MenuItem;
 	usin->setCommand("User Interface");
-	*usin << "Std_ViewStatusBar";
+	*usin << "Std_FeatureManagerTree" << "Std_Toolbars" << "Std_ViewStatusBar" ;
 
     // View, Comment out the original functions and add in the new menu
     MenuItem* view = new MenuItem( menuBar );

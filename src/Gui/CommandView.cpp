@@ -946,6 +946,54 @@ bool StdCmdSketchRelations::isActive(void)
 	return false;
 }
 
+//===========================================================================
+//Std_FeatureManagerTree
+//===========================================================================
+DEF_STD_CMD_A(StdCmdFeatureManagerTree)
+
+StdCmdFeatureManagerTree::StdCmdFeatureManagerTree()
+	: Command("Std_FeatureManagerTree")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("FeatureManagerTree");
+	sToolTipText = QT_TR_NOOP("Managing Trees");
+	sStatusTip = QT_TR_NOOP("Tree Manager");
+	sWhatsThis = "Std_FeatureManagerTree";
+
+}
+
+void StdCmdFeatureManagerTree::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+bool StdCmdFeatureManagerTree::isActive(void)
+{
+	return false;
+}
+//===========================================================================
+//Std_Toolbars
+//===========================================================================
+DEF_STD_CMD_A(StdCmdToolbars)
+
+StdCmdToolbars::StdCmdToolbars()
+	: Command("Std_Toolbars")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("Toolbars");
+	sToolTipText = QT_TR_NOOP("Toolbars");
+	sStatusTip = QT_TR_NOOP("Tool-bars");
+	sWhatsThis = "Std_Toolbars";
+
+}
+
+void StdCmdToolbars::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+bool StdCmdToolbars::isActive(void)
+{
+	return false;
+}
 
 //===========================================================================
 // Std_ToggleVisibility
@@ -3769,6 +3817,9 @@ void CreateViewStdCommands(void)
 	rcCmdMgr.addCommand(new StdCmdDimensions());
 	rcCmdMgr.addCommand(new StdCmdGrid());
 	rcCmdMgr.addCommand(new StdCmdSketchRelations());
+	rcCmdMgr.addCommand(new StdCmdFeatureManagerTree());
+	rcCmdMgr.addCommand(new StdCmdToolbars()); 
+	
 
 
     auto hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/View");
