@@ -1671,6 +1671,81 @@ bool StdCmdRedraw::isActive(void)
 {
 	return false;
 }
+//===========================================================================
+// Std_Select
+//===========================================================================
+DEF_STD_CMD_A(StdCmdSelect)
+
+StdCmdSelect::StdCmdSelect()
+	: Command("Std_Select")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("Select");
+	sToolTipText = QT_TR_NOOP("Select");
+	sWhatsThis = "Std_Select";
+	sStatusTip = QT_TR_NOOP("NA");
+
+}
+
+void StdCmdSelect::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+
+bool StdCmdSelect::isActive(void)
+{
+	return false;
+}
+//===========================================================================
+// Std_Invert
+//===========================================================================
+DEF_STD_CMD_A(StdCmdInvertSelection)
+
+StdCmdInvertSelection::StdCmdInvertSelection()
+	: Command("Std_InvertSelection")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("InvertSelection");
+	sToolTipText = QT_TR_NOOP("InvertSelectionSelect");
+	sWhatsThis = "Std_InvertSelection";
+	sStatusTip = QT_TR_NOOP("NA");
+
+}
+
+void StdCmdInvertSelection::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+
+bool StdCmdInvertSelection::isActive(void)
+{
+	return false;
+}
+//===========================================================================
+// Std_Options
+//===========================================================================
+DEF_STD_CMD_A(StdCmdOptions)
+
+StdCmdOptions::StdCmdOptions()
+	: Command("Std_Options")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("Options...");
+	sToolTipText = QT_TR_NOOP("Options");
+	sWhatsThis = "Std_Options";
+	sStatusTip = QT_TR_NOOP("NA");
+
+}
+
+void StdCmdOptions::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+
+bool StdCmdOptions::isActive(void)
+{
+	return false;
+}
 
 //===========================================================================
 // Std_ViewFitSelection
@@ -3819,6 +3894,9 @@ void CreateViewStdCommands(void)
 	rcCmdMgr.addCommand(new StdCmdSketchRelations());
 	rcCmdMgr.addCommand(new StdCmdFeatureManagerTree());
 	rcCmdMgr.addCommand(new StdCmdToolbars()); 
+	rcCmdMgr.addCommand(new StdCmdSelect());
+	rcCmdMgr.addCommand(new StdCmdInvertSelection());
+	rcCmdMgr.addCommand(new StdCmdOptions()); 
 	
 
 

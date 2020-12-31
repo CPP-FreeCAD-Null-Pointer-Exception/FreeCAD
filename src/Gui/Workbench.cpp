@@ -644,7 +644,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
     // Tools
     MenuItem* tool = new MenuItem( menuBar );
     tool->setCommand("&Tools");
-    *tool << "Std_DlgParameter"
+  /*  *tool << "Std_DlgParameter"
           << "Separator"
           << "Std_ViewScreenShot"
           << "Std_SceneInspector"
@@ -659,6 +659,9 @@ MenuItem* StdWorkbench::setupMenuBar() const
           << "Std_UnitsCalculator"
           << "Separator"
           << "Std_DlgCustomize";
+		  */
+	* tool << "Std_Select" << "Std_BoxSelection" << "Std_SelectAll" << "Std_InvertSelection" << "Separator"
+		<< "Std_ViewScreenShot" << "Separator" << "Std_MeasureDistance" << "Separator" << "Std_Options" << "Std_DlgCustomize";
 #ifdef BUILD_ADDONMGR
     *tool << "Std_AddonMgr";
 #endif
