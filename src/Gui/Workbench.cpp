@@ -679,11 +679,12 @@ MenuItem* StdWorkbench::setupMenuBar() const
            << "Std_ToggleBreakpoint";*/
 
     // Windows
-    MenuItem* wnd = new MenuItem( menuBar );
+    /*MenuItem* wnd = new MenuItem( menuBar );
     wnd->setCommand("&Windows");
     *wnd << "Std_ActivateNextWindow" << "Std_ActivatePrevWindow" << "Separator"
          << "Std_TileWindows" << "Std_CascadeWindows"
-         << "Std_ArrangeIcons" << "Separator" << "Std_WindowsMenu" << "Std_Windows";
+         << "Std_ArrangeIcons" << "Separator" << "Std_WindowsMenu" << "Std_Windows";*/
+
 
     /* Simulation 
         - Command definitions to be defined in either of the three:
