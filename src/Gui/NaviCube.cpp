@@ -304,6 +304,7 @@ void NaviCube::setCorner(Corner c) {
 	m_NaviCubeImplementation->m_PrevHeight = 0;
 }
 
+//Navicube Setting Settings Function
 NaviCubeImplementation::NaviCubeImplementation(
 	Gui::View3DInventorViewer* viewer) {
 	ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/NaviCube");
@@ -351,6 +352,7 @@ NaviCubeImplementation::~NaviCubeImplementation() {
 #endif
 }
 
+//Navicube text display function
 char* NaviCubeImplementation::enum2str(int e) {
 	switch (e) {
 	default : return "???";
@@ -382,6 +384,7 @@ char* NaviCubeImplementation::enum2str(int e) {
 	}
 }
 
+//Navicube shape create and display function here
 GLuint NaviCubeImplementation::createCubeFaceTex(QtGLWidget* gl, float gap, float radius, const char* text) {
 	int texSize = m_CubeWidgetSize * m_OverSample;
 	int gapi = texSize * gap;
