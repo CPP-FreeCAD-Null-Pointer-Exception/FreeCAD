@@ -1490,10 +1490,40 @@ void StdCmdViewFitAll::activated(int iMsg)
     doCommand(Command::Gui,"Gui.SendMsgToActiveView(\"ViewFit\")");
 }
 
+
+
 bool StdCmdViewFitAll::isActive(void)
 {
     //return isViewOfType(Gui::View3DInventor::getClassTypeId());
     return getGuiApplication()->sendHasMsgToActiveView("ViewFit");
+}
+
+//============================================================
+//Std_Redraw
+//============================================================
+
+DEF_STD_CMD_A(StdCmdRedraw)
+
+StdCmdRedraw::StdCmdRedraw()
+	: Command("Std_Redraw")
+{
+	sGroup = QT_TR_NOOP("Standard-View");
+	sMenuText = QT_TR_NOOP("Redraw");
+	sToolTipText = QT_TR_NOOP("Nothing");
+	sWhatsThis = "Std_Redraw";
+	sStatusTip = QT_TR_NOOP("Nothing");
+	//sAccel = "V, S";
+	
+}
+
+void StdCmdRedraw::activated(int iMsg)
+{
+	Q_UNUSED(iMsg);
+}
+
+bool StdCmdRedraw::isActive(void)
+{
+	return false;
 }
 
 //===========================================================================
@@ -3635,6 +3665,7 @@ void CreateViewStdCommands(void)
     rcCmdMgr.addCommand(new StdCmdSelBack());
     rcCmdMgr.addCommand(new StdCmdSelForward());
     rcCmdMgr.addCommand(new StdCmdTreeViewActions());
+	rcCmdMgr.addCommand(new StdCmdRedraw());
 
 
     auto hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/View");

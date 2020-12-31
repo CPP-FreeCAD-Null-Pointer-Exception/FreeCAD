@@ -631,7 +631,7 @@ MenuItem* StdWorkbench::setupMenuBar() const
     // View, Comment out the original functions and add in the new menu
     MenuItem* view = new MenuItem( menuBar );
     view->setCommand("&View");
-    *view << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_ViewZoomIn" << "Std_ViewZoomOut" << "Std_ViewBoxZoom" << "Separator"
+    *view <<  "Std_Redraw" << "Separator" << "Std_ViewFitAll" << "Std_ViewFitSelection" << "Std_ViewZoomIn" << "Std_ViewZoomOut" << "Std_ViewBoxZoom" << "Separator"
 			<< "Std_ViewRotateRight" << "Std_ViewRotateLeft" << "Separator"
 			<< visu << "Separator"
 #ifdef BUILD_VR
