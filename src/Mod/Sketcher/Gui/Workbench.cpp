@@ -84,9 +84,9 @@ Gui::MenuItem* Workbench::setupMenuBar() const
     bsplines->setCommand("Sketch B-Spline Tools");
     addSketcherWorkbenchBSplines(*bsplines);
 
-     Gui::MenuItem* virtualspace = new Gui::MenuItem();
-     virtualspace->setCommand("Sketcher virtual space");
-     addSketcherWorkbenchVirtualSpace(*virtualspace);
+    /*Gui::MenuItem* virtualspace = new Gui::MenuItem();
+    virtualspace->setCommand("Sketcher virtual space");
+    addSketcherWorkbenchVirtualSpace(*virtualspace);*/
 
     Gui::MenuItem* sketch = new Gui::MenuItem;
     root->insertItem(item, sketch);
@@ -95,8 +95,7 @@ Gui::MenuItem* Workbench::setupMenuBar() const
     *sketch << geom
             << cons
             << consaccel
-            << bsplines
-            << virtualspace;
+            << bsplines;
 
     return root;
 }

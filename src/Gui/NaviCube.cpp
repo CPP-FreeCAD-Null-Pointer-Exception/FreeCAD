@@ -965,7 +965,7 @@ void NaviCubeImplementation::drawNaviCube(bool pickMode) {
 	glVertexPointer(3, GL_FLOAT, 0, (void*) m_VertexArray.data());
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glTexCoordPointer(2, GL_FLOAT, 0, m_TextureCoordArray.data());
-
+	/*
 	if (!pickMode) {
 		// Draw the axes
 		ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/NaviCube");
@@ -1094,6 +1094,7 @@ void NaviCubeImplementation::drawNaviCube(bool pickMode) {
 		glColor4f(c.redF(), c.greenF(), c.blueF(), c.alphaF());
 		glBindTexture(GL_TEXTURE_2D, m_Textures[TEX_VIEW_MENU_ICON]);
 	}
+	*/
 
 	glBegin(GL_QUADS); // FIXME do this with vertex arrays
 	glTexCoord2f(0, 0);
