@@ -340,6 +340,7 @@ NaviCubeImplementation::NaviCubeImplementation(
 	m_Menu = createNaviCubeMenu();
 }
 
+//NaviCube Implementation (MAIN) Function goes here
 NaviCubeImplementation::~NaviCubeImplementation() {
 	delete m_Menu;
 	if (m_PickingFramebuffer)
@@ -352,7 +353,7 @@ NaviCubeImplementation::~NaviCubeImplementation() {
 #endif
 }
 
-//Navicube text display function
+//Navicube text display function <CASE LIST>
 char* NaviCubeImplementation::enum2str(int e) {
 	switch (e) {
 	default : return "???";
