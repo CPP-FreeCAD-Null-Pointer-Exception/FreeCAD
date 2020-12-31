@@ -111,5 +111,4 @@ Null-Pointer-Exception Contributors
 - [Chris Young]
 - [Jenn Sloane]
 - [Jumhelle Viduya]
-- [Keane Kaiser]
 - [Jonah Mokhtarzadeh]
