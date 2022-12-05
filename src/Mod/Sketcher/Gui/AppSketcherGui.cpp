@@ -118,7 +118,7 @@ PyMOD_INIT_FUNC(SketcherGui)
     CreateSketcherCommandsAlterGeo();
     CreateSketcherCommandsConstraintAccel();
     CreateSketcherCommandsBSpline();
-    CreateSketcherCommandsVirtualSpace();
+    //CreateSketcherCommandsVirtualSpace();
 
     SketcherGui::Workbench::init();
 

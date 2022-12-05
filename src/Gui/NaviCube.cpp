@@ -304,6 +304,7 @@ void NaviCube::setCorner(Corner c) {
 	m_NaviCubeImplementation->m_PrevHeight = 0;
 }
 
+//Navicube Setting Settings Function
 NaviCubeImplementation::NaviCubeImplementation(
 	Gui::View3DInventorViewer* viewer) {
 	ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/NaviCube");
@@ -339,6 +340,7 @@ NaviCubeImplementation::NaviCubeImplementation(
 	m_Menu = createNaviCubeMenu();
 }
 
+//NaviCube Implementation (MAIN) Function goes here
 NaviCubeImplementation::~NaviCubeImplementation() {
 	delete m_Menu;
 	if (m_PickingFramebuffer)
@@ -351,6 +353,7 @@ NaviCubeImplementation::~NaviCubeImplementation() {
 #endif
 }
 
+//Navicube text display function <CASE LIST>
 char* NaviCubeImplementation::enum2str(int e) {
 	switch (e) {
 	default : return "???";
@@ -382,6 +385,7 @@ char* NaviCubeImplementation::enum2str(int e) {
 	}
 }
 
+//Navicube shape create and display function here
 GLuint NaviCubeImplementation::createCubeFaceTex(QtGLWidget* gl, float gap, float radius, const char* text) {
 	int texSize = m_CubeWidgetSize * m_OverSample;
 	int gapi = texSize * gap;
@@ -537,6 +541,7 @@ GLuint NaviCubeImplementation::createButtonTex(QtGLWidget* gl, int button) {
 #endif
 }
 
+
 GLuint NaviCubeImplementation::createMenuTex(QtGLWidget* gl, bool forPicking) {
 	int texSize = m_CubeWidgetSize * m_OverSample;
 	QImage image(texSize, texSize, QImage::Format_ARGB32);
@@ -613,7 +618,7 @@ GLuint NaviCubeImplementation::createMenuTex(QtGLWidget* gl, bool forPicking) {
 }
 
 
-
+//Navicube add shape face function here
 void NaviCubeImplementation::addFace(const Vector3f& x, const Vector3f& z, int frontTex, int backTex, int pickTex, int pickId,bool text) {
 	Vector3f y = x.cross(-z);
 	y = y / y.norm() * x.norm();
@@ -676,6 +681,7 @@ void NaviCubeImplementation::addFace(const Vector3f& x, const Vector3f& z, int f
 		m_IndexArray.push_back(t + 4 - 1 - i);
 }
 
+//Navicube define NaviCube function here
 void NaviCubeImplementation::initNaviCube(QtGLWidget* gl) {
 	Vector3f x(1, 0, 0);
 	Vector3f y(0, 1, 0);
@@ -962,7 +968,7 @@ void NaviCubeImplementation::drawNaviCube(bool pickMode) {
 	glVertexPointer(3, GL_FLOAT, 0, (void*) m_VertexArray.data());
 	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glTexCoordPointer(2, GL_FLOAT, 0, m_TextureCoordArray.data());
-
+	/*
 	if (!pickMode) {
 		// Draw the axes
 		ParameterGrp::handle hGrp = App::GetApplication().GetParameterGroupByPath("User parameter:BaseApp/Preferences/NaviCube");
@@ -1091,6 +1097,7 @@ void NaviCubeImplementation::drawNaviCube(bool pickMode) {
 		glColor4f(c.redF(), c.greenF(), c.blueF(), c.alphaF());
 		glBindTexture(GL_TEXTURE_2D, m_Textures[TEX_VIEW_MENU_ICON]);
 	}
+	*/
 
 	glBegin(GL_QUADS); // FIXME do this with vertex arrays
 	glTexCoord2f(0, 0);
@@ -1351,7 +1358,6 @@ void NaviCube::setNaviCubeLabels(const std::vector<std::string>& labels)
 }
 
 
-
 DEF_3DV_CMD(ViewIsometricCmd)
 ViewIsometricCmd::ViewIsometricCmd()
   : Command("ViewIsometricCmd")
@@ -1366,6 +1372,7 @@ ViewIsometricCmd::ViewIsometricCmd()
     eType         = Alter3DView;
 }
 
+//NaviCube Isometric View Command here
 void ViewIsometricCmd::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
@@ -1394,6 +1401,7 @@ void ViewOrthographicCmd::activated(int iMsg)
 
 DEF_3DV_CMD(ViewPerspectiveCmd)
 
+//Navicube View Perspective Command here
 ViewPerspectiveCmd::ViewPerspectiveCmd()
   : Command("ViewPerspectiveCmd")
 {
@@ -1407,6 +1415,7 @@ ViewPerspectiveCmd::ViewPerspectiveCmd()
     eType         = Alter3DView;
 }
 
+//Navicube View Perspective (activation) Function here
 void ViewPerspectiveCmd::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
@@ -1415,6 +1424,7 @@ void ViewPerspectiveCmd::activated(int iMsg)
 
 DEF_3DV_CMD(ViewZoomToFitCmd)
 
+//Navicube Zoom to Fit Command here
 ViewZoomToFitCmd::ViewZoomToFitCmd()
   : Command("ViewZoomToFit")
 {
@@ -1428,13 +1438,14 @@ ViewZoomToFitCmd::ViewZoomToFitCmd()
     eType         = Alter3DView;
 }
 
+
 void ViewZoomToFitCmd::activated(int iMsg)
 {
     Q_UNUSED(iMsg);
     Command::doCommand(Command::Gui, "Gui.SendMsgToActiveView(\"ViewFit\")");
 }
 
-
+//NaviCube Create Menu Function here
 QMenu* NaviCubeImplementation::createNaviCubeMenu() {
     QMenu* menu = new QMenu(getMainWindow());
     menu->setObjectName(str("NaviCube_Menu"));

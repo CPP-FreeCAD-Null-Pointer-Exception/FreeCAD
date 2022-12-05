@@ -170,8 +170,8 @@ int main( int argc, char ** argv )
 #endif // PY_MAJOR_VERSION
 
     // Name and Version of the Application
-    App::Application::Config()["ExeName"] = "FreeCAD";
-    App::Application::Config()["ExeVendor"] = "FreeCAD";
+    App::Application::Config()["ExeName"] = "Null PE";
+    App::Application::Config()["ExeVendor"] = "FreeCad";
     App::Application::Config()["AppDataSkipVendor"] = "true";
     App::Application::Config()["MaintainerUrl"] = "http://www.freecadweb.org/wiki/Main_Page";
 
@@ -179,10 +179,10 @@ int main( int argc, char ** argv )
     App::Application::Config()["CopyrightInfo"] = sBanner;
     App::Application::Config()["AppIcon"] = "freecad";
     App::Application::Config()["SplashScreen"] = "freecadsplash";
-    App::Application::Config()["StartWorkbench"] = "StartWorkbench";
+    App::Application::Config()["StartWorkbench"] = "SketcherWorkbench";
     //App::Application::Config()["HiddenDockWindow"] = "Property editor";
     App::Application::Config()["SplashAlignment" ] = "Bottom|Left";
-    App::Application::Config()["SplashTextColor" ] = "#ffffff"; // white
+    App::Application::Config()["SplashTextColor" ] = "#FF0000"; // red
     App::Application::Config()["SplashInfoColor" ] = "#c8c8c8"; // light grey
 
 #if (QT_VERSION >= QT_VERSION_CHECK(5, 7, 0))
@@ -199,6 +199,7 @@ int main( int argc, char ** argv )
         // Inits the Application
 #if defined (FC_OS_WIN32)
         App::Application::init(argc_, argv_.data());
+		
 #else
         App::Application::init(argc, argv);
 #endif
