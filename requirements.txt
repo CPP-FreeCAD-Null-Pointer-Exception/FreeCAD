@@ -4,4 +4,4 @@ PySide==1.2.4
 # PySide2==5.12.0
 Shiboken==1.2.2
 six==1.12.0
-Markdown==3.2.2
+Markdown==3.8.1
